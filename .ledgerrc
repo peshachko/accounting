@@ -1,0 +1,3 @@
+--file runner.ledger
+--pedantic
+--check-payees
