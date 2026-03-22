@@ -1,0 +1,15 @@
+python
+    import json
+    try:
+        with open('members.json', encoding='utf-8') as h:
+            data = json.load(h)
+        MEMBERS = {m["Име"] for m in data}
+    except Exception as e:
+        print("Warning: could not load members.json:", e)
+
+    def validate_member_tag(value):
+        """Return True if the value is a valid member."""
+        return value in MEMBERS
+
+tag Член
+    assert validate_member_tag(value)
