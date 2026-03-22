@@ -5,7 +5,7 @@
 ALL_ACCOUNTS_FILE := all_accounts_completion.ledger
 
 MEMBERS_FILE := members.json
-MEMBERS_GITHUB_LINK := https://raw.githubusercontent.com/peshachko/peshachko.github.io/refs/heads/dev-donation/docs/data/members.json
+MEMBERS_GITHUB_LINK := https://raw.githubusercontent.com/peshachko/peshachko.github.io/refs/heads/main/docs/data/members.json
 
 TAGS_DIR := tags
 TAGS_DIR_GENERATED := $(TAGS_DIR)/generated
