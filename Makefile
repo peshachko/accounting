@@ -14,4 +14,5 @@ clean: ## Clean generated files
 	@rm -f $(ALL_ACCOUNTS_FILE)
 
 bal:
-	@ledger bal -e $$(date +%Y/%m/%d)
+# instead of -e $$(date +%Y/%m/%d), I could directly use --current (or -c)
+	@ledger bal -c
