@@ -14,9 +14,6 @@ TAG_FILES := tag_member
 
 LEDGER := ledger
 
-TOTAL ?= false
-SUBTOTAL_FLAG := $(if $(filter true,$(TOTAL)),--subtotal,)
-
 # -----------------------------------------------------------------
 
 ALLOWED_TAG_SUFFIX := python no_python
@@ -44,9 +41,13 @@ tags: get-members | $(TAGS_DIR_GENERATED)
 get-members:
 	test -f $(MEMBERS_FILE) || curl -f -sS -L -o $(MEMBERS_FILE) $(MEMBERS_GITHUB_LINK)
 
-## List donors grouped by name (pass TOTAL=true to aggregate)
+## List donors grouped by name
 list-donations:
-	@$(LEDGER) reg "Приходи:НД:Дарения" --group-by 'tag("Дарител")' $(SUBTOTAL_FLAG)
+	@$(LEDGER) reg "Приходи:НД:Дарения" --group-by 'tag("Дарител")'
+
+## List donors grouped by name (display subtotal only)
+list-donations-subtotal:
+	@$(LEDGER) reg "Приходи:НД:Дарения" --group-by 'tag("Дарител")' --subtotal
 
 clean: ## Clean generated files
 	rm -f $(ALL_ACCOUNTS_FILE) $(MEMBERS_FILE)
