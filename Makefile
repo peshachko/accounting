@@ -49,6 +49,10 @@ list-donations:
 list-donations-subtotal:
 	@$(LEDGER) reg "Приходи:НД:Дарения" --group-by 'tag("Дарител")' --subtotal
 
+## List receivables
+list-receivables:
+	@$(LEDGER) reg "Активи:Вземания:Членове:Членски внос" --group-by 'tag("Член")'
+
 clean: ## Clean generated files
 	rm -f $(ALL_ACCOUNTS_FILE) $(MEMBERS_FILE)
 	rm -rf $(TAGS_DIR_GENERATED)
